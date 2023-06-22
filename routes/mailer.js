@@ -3,14 +3,12 @@ var mailerRouter  = express.Router();
 require('dotenv').config()
 /* GET home page. */
 mailerRouter.get("/", function(req, res, next) {
-  res.render("Express");
+  res.send("Express");
   console.log(process.env.MAIL_USR + ":" + process.env.MAIL_PASS)
 });
 
 mailerRouter.post("/", function(req, res, next) {
- 
 
-  function sendEmailFromApi () {
 
     "use strict";
     // remove this after you've confirmed it is working
@@ -38,8 +36,7 @@ mailerRouter.post("/", function(req, res, next) {
         from: '"Cotizaciones" <bici.vic2@zohomail.com>', // sender address
         to: "bici.vic2@gmail.com", // list of receivers
         subject: "Solicitud de cotizacion", // Subject line
-        text: "Un cliente solicito un presupuesto de lo siguiente:"+req.body.prod+"de"+req.body.moto+ " "+req.body.anio + " "+req.body.color + "datos del cliente:"+req.body.nombre +"telefono" +req.body.telefono, // plain text body
-        html: "Un cliente solicito un presupuesto de lo siguiente:"+req.body.prod+"de"+req.body.moto+ " "+req.body.anio + " "+req.body.color + "datos del cliente:"+req.body.nombre +"telefono" +req.body.telefono, // html body
+        text: "Un cliente solicito un presupuesto de lo siguiente:"+req.body.prod+"de"+req.body.moto+ " "+req.body.anio + " "+req.body.color + "datos del cliente:"+req.body.nombre +"telefono" +req.body.telefono// plain text body
       });
     
       console.log("Message sent: %s", info.messageId);
@@ -47,10 +44,6 @@ mailerRouter.post("/", function(req, res, next) {
     
     }
     main().catch(console.error);
-  }
-  
-  sendEmailFromApi()
-  
 });
 
 module.exports = mailerRouter ;
