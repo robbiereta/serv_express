@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cors = require('cors');
 
 var app = express();
-const port = 3001
+const port = 3000
 app.use(cors());
 var mailerRouter = require('./routes/mailer');
 var botRouter = require('./routes/bot');
