@@ -5,13 +5,25 @@ var logger = require('morgan');
 var cors = require('cors');
 var app = express();
 var mongoose = require('mongoose');
-
-mongoose.connect('mongodb+srv://Robbie:Xw7QHNaFmonTKbBZ@cluster0.c9uqb.mongodb.net/',{dbName:'bvic'});
+var Resource = require('resourcejs');
+mongoose.connect('mongodb+srv://Robbie:yZLHrc66nTrvLaio@cluster0.c9uqb.mongodb.net',{dbName: 'bvic'});
 const port = 3000
 app.use(cors());
 var mailerRouter = require('./routes/mailer');
 var botRouter = require('./routes/bot');
 var cotizacionesRouter = require('./routes/cotizaciones');
+var ordenModel = require('./models/ordenModel');
+
+// Create the REST resource.
+Resource(app,'','orden', ordenModel).rest();
+/*The following rest interface would then be exposed.
+
+/resource - (GET) - List all resources.
+/resource - (POST) - Create a new resource.
+/resource/:id - (GET) - Get a specific resource.
+/resource/:id - (PUT) - Replaces an existing resource.
+/resource/:id - (PATCH) - Updates an existing resource.
+/resource/:id - (DELETE) - Deletes an existing resource. */
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded

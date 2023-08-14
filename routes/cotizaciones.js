@@ -1,14 +1,18 @@
-var express = require("express");
-var cotizacionesRouter  = express.Router();
-require('dotenv').config()
-/* GET home page. */
-cotizacionesRouter.get("/", function(req, res, next) {
-  res.send("Express");
-  console.log(process.env.MAIL_USR + ":" + process.env.MAIL_PASS)
-});
+import { Router } from 'express';
 
-cotizacionesRouter.post("/", function(req, res, next) {
+// import all controllers
+// import SessionController from './app/controllers/SessionController';
 
-});
+const routes = new Router();
+
+// Add routes
+// routes.get('/', SessionController.store);
+// routes.post('/', SessionController.store);
+// routes.put('/', SessionController.store);
+// routes.delete('/', SessionController.store);
+
+module.exports = routes;
+
+
 
 module.exports = cotizacionesRouter ;
