@@ -1,11 +1,16 @@
  const mongoose = require('mongoose');
  
- const ordenModelSchema = new mongoose.Schema({
-     key: {type:String},
- },{
-     timestamps: true,
- });
+ const ordenSchema = new mongoose.Schema({
+     lineasOrden: [{
+        anio: Number,
+        moto: String,
+        producto: String,
+        color: String}],
+        
+        telefono: Number,
+    nombreCliente: String,
+     });
  
- const OrdenModel = mongoose.model('ordenModel', ordenModelSchema)
+ const Orden = mongoose.model('orden', ordenSchema)
  
- module.exports = OrdenModel
+ module.exports = Orden
