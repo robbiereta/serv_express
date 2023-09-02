@@ -16,6 +16,7 @@ var orden = require('../models/ordenModel');
     doc.telefono=req.body.telefono
     doc.nombreCliente=req.body.nombreCliente
   await doc.save()
+  
 
 }
 
