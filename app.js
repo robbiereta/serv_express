@@ -6,6 +6,9 @@ var cors = require('cors');
 var app = express();                                                                                          
 const port = 3000
 app.use(cors());
+require('dotenv').config()
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URI,{dbName: 'bvic'});
 var mailerRouter = require('./routes/mailer');
 var botRouter = require('./routes/bot');
 var ordenRouter = require('./routes/orden');

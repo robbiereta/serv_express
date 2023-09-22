@@ -1,17 +1,12 @@
-import { Router } from 'express';
+//*********************************************************************************************************
+//* Explanation 
+//* 
+//*********************************************************************************************************
+const express = require('express');
+const preciosRouter = express.Router();
+const preciosController = require('../controllers/preciosController')
 
-// import all controllers
-// import SessionController from './app/controllers/SessionController';
+preciosRouter.get('/', preciosController.all);
 
-const Precios = new Router();
 
-Router.get('/', (req, res) => {
-
-    res.send('precios')
-
-});
-// routes.post('/', SessionController.store);
-// routes.put('/', SessionController.store);
-// routes.delete('/', SessionController.store);
-
-module.exports = Precios;
+module.exports = preciosRouter;
