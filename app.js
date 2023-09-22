@@ -3,16 +3,13 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var cors = require('cors');
-var app = express();
-var mongoose = require('mongoose');
-var Resource= require('resourcejs');
-require('dotenv').config()
-mongoose.connect(process.env.MONGO_URI,{dbName: 'bvic'});
+var app = express();                                                                                          
 const port = 3000
 app.use(cors());
 var mailerRouter = require('./routes/mailer');
 var botRouter = require('./routes/bot');
 var ordenRouter = require('./routes/orden');
+var preciosRouter = require('./routes/precios');
 
 
 // Create the REST resource.
@@ -32,6 +29,7 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use('/bot',botRouter)
 app.use('/mailer',mailerRouter);
 app.use('/orden',ordenRouter);
+app.use('/precios',preciosRouter);
 app.use('/', (req, res) => res.send('Hello World!'));
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
