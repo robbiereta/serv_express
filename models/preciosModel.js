@@ -5,6 +5,6 @@
         e: Number,
      });
  
- const Precios = mongoose.model('precios', preciosSchema)
+ const Precios = mongoose.model('existencias', preciosSchema)
  
  module.exports = Precios
