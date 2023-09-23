@@ -1,21 +1,11 @@
 
-var existencias = require('../models/preciosModel');
+var precios = require('../models/preciosModel');
 //*********************************************************************************************************
 //* Explanation 
 //*********************************************************************************************************
  async function all(req, res, next) {
   
-    const lista= await existencias.find({});
-   existencias.aggregate([{
-$lookup:{
-From:'exportarProds',
-LocalField:'c',
-ForeignField:'Codigo',
-as:'existencias'
-}
-   }])
-
-
+    const lista=precios.aggregate([{$lookup:{From:'existencias',LocalField:'Codigo',ForeignField:'C',as:'existencias'}}])
     res.send(lista)
 }
 
