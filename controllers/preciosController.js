@@ -5,7 +5,7 @@ var precios = require('../models/preciosModel');
 //*********************************************************************************************************
  async function all(req, res, next) {
   
-    const lista=precios.aggregate([{$lookup:{From:'existencias',LocalField:'Codigo',ForeignField:'C',as:'existencias'}}])
+    const lista=precios.find()
     res.send(lista)
 }
 
