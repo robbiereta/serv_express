@@ -6,6 +6,6 @@
       precio_venta: Number
      });
  
- const Precios = mongoose.model('productos', preciosSchema)
+ const Precios = mongoose.model('precios', preciosSchema)
  
  module.exports = Precios
