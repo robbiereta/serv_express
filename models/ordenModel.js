@@ -1,16 +1,23 @@
- const mongoose = require('mongoose');
+ const mongoose = require('mongoose'); // Erase if already required
  
- const ordenSchema = new mongoose.Schema({
-     lineasOrden: [{
-        anio: Number,
-        moto: String,
-        producto: String,
-        color: String}],
-        
-        telefono: Number,
-    nombreCliente: String,
-     });
+ // Declare the Schema of the Mongo model
+ var ordenSchema = new mongoose.Schema({
+     nombre_cliente:{
+         type:String,
+         required:true,
+         unique:true,
+         index:true,
+     },
+     telefono:{
+         type:Number,
+         required:true,
+         unique:true,
+     },
+     lineas_orden:{
+         type:Array,
+         required:true
+     }
+ });
  
- const Orden = mongoose.model('orden', ordenSchema)
- 
- module.exports = Orden
+ //Export the model
+ module.exports = mongoose.model('Orden', ordenSchema);

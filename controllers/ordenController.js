@@ -4,7 +4,9 @@ var orden = require('../models/ordenModel');
 //* Explanation 
 //*********************************************************************************************************
  async function all(req, res, next) {
-
+  const doc = await orden.find({});
+  
+  res.send( doc );
 }
 
 //*********************************************************************************************************
@@ -12,10 +14,11 @@ var orden = require('../models/ordenModel');
 //*********************************************************************************************************
  async function createOrden(req, res, next) {
     const doc= new orden()
-    doc.lineasOrden=req.body.lineasOrden
+    doc.nombre_cliente=req.body.nombre_cliente
     doc.telefono=req.body.telefono
-    doc.nombreCliente=req.body.nombreCliente
+    doc.lineas_orden=req.body.lineas_orden
   await doc.save()
+  res.send(doc)
   
 
 }

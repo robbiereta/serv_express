@@ -5,7 +5,7 @@ var precios = require('../models/preciosModel');
 //*********************************************************************************************************
  async function all(req, res, next) {
   
-    const lista=precios.find()
+    const lista= await precios.find({})
     res.send(lista)
 }
 
