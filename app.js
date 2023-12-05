@@ -4,7 +4,7 @@ var path = require('path');
 var logger = require('morgan');
 var cors = require('cors');
 var app = express();                                                                                          
-const port = 3005
+const port = 3006
 app.use(cors());
 require('dotenv').config()
 var mongoose = require('mongoose');
@@ -13,6 +13,7 @@ var mailerRouter = require('./routes/mailer');
 var botRouter = require('./routes/bot');
 var ordenRouter = require('./routes/orden');
 var preciosRouter = require('./routes/precios');
+var productosRouter = require('./routes/productosRoutes');
 
 
 app.use(express.json()) // for parsing application/json
@@ -21,6 +22,7 @@ app.use('/bot',botRouter)
 app.use('/mailer',mailerRouter);
 app.use('/orden',ordenRouter);
 app.use('/precios',preciosRouter);
+app.use('/productos',productosRouter);
 app.use('/', (req, res) => res.send('Hello World!'));
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
