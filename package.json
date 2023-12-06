@@ -8,11 +8,15 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "build":"node app.js",
+    "frontend": "  cd ./admin && npm run dev",
+    "poststart": "concurrently \"npm run build\" \"npm run frontend\""
   },
   "dependencies": {
     "body-parser": "^1.20.2",
     "compression": "^1.7.4",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "crypto-browserify": "^3.12.0",
     "dotenv": "^16.1.3",
