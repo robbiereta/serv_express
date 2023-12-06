@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon app.js",
     "build":"node app.js",
-    "frontend": "  cd ./admin &&  npm i && npm run dev",
+    "frontend": " cd ./admin &&  npm run dev",
     "poststart": "concurrently \"npm run build\" \"npm run frontend\""
   },
   "dependencies": {
