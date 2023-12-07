@@ -1,0 +1,41 @@
+openapi: "3.0.0"
+info:
+  version: "1"
+  title: ""
+  description: ""
+paths:
+  /all:
+    get:
+      operationId: "all"
+      description: ""
+      parameters:
+        - in: "query"
+          name: "all"
+          schema:
+            type: "string"
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: "string"
+      security:
+        - ApiKeyAuth: []
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: "apiKey"
+      in: "header"
+      name: "Authorization"
+  schemas:
+    notas:
+      properties:
+        id_nota:
+          nullable: false
+          type: "integer"
+        lineas:
+          nullable: false
+          type: "array"
+          items:
+            type: "string"
