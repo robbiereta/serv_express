@@ -11,15 +11,7 @@
     "start": "nodemon app.js",
     "build":"node app.js",
     "frontend": " cd ./admin &&  npm run dev",
-    "poststart": "concurrently \"npm run build\" \"npm run frontend\"",
-  "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview",
-    "type-check": "tsc --noEmit",
-    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ./src",
-    "format": "prettier --write ./src"
-  },
-  
+    "poststart": "concurrently \"npm run build\" \"npm run frontend\""
   },
   "dependencies": {
     "body-parser": "^1.20.2",
