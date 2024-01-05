@@ -14,7 +14,7 @@ var botRouter = require('./routes/bot');
 var ordenRouter = require('./routes/orden');
 var preciosRouter = require('./routes/precios');
 var productosRouter = require('./routes/productosRoutes');
-  
+var orden_posRouter = require('./routes/orden_pos'); 
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -23,6 +23,7 @@ app.use('/mailer',mailerRouter);
 app.use('/orden',ordenRouter);
 app.use('/precios',preciosRouter);
 app.use('/productos',productosRouter);
+app.use('/orden_pos',orden_posRouter)
 app.use('/', (req, res) => res.send('Hello World!'));
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
