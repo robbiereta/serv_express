@@ -1,5 +1,5 @@
 {
-  "name": "express-hello-world",
+  "name": "express_apis",
   "version": "1.0.0",
   "description": "Express Hello World on Render",
   "main": "app.js",

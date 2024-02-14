@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var productosController = require('../controllers/productosController.js');
 var cors = require('cors');
 var corsOptions = {
     origin: '*',
@@ -12,7 +11,10 @@ var corsOptions = {
 /*
  * GET
  */
-router.get('/', cors(corsOptions), productosController.list);
+router.get('/', cors(corsOptions), function(req, res, next) {
+  res.send('respond with a resource');
+  
+});
 
 /*
  * GET
